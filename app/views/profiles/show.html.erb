@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <div>
+    <img class="h-32 w-full object-cover lg:h-48" src="https://images.unsplash.com/photo-1510906594845-bc082582c8cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="">
+  </div>
+  <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
+      <div class="flex">
+        <%= image_tag avatar_url(@profile, size: 128), class: "h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32" %>
+      </div>
+      <div class="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
+        <div class="sm:hidden 2xl:block mt-6 min-w-0 flex-1">
+          <h1 class="text-2xl font-bold text-gray-900 truncate">
+            <%= @profile.name %>
+          </h1>
+        </div>
+        <div class="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
+          <%= link_to edit_profile_path(@profile), class: "inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="-ml-1 mr-2 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            </svg>
+            <span>Edit profile</span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="hidden sm:block 2xl:hidden mt-6 min-w-0 flex-1">
+      <h1 class="text-2xl font-bold text-gray-900 truncate">
+        <%= @profile.name %>
+      </h1>
+    </div>
+  </div>
+</div>
+
+<!-- Description list -->
+<div class="mt-8 pt-8 border-t border-gray-200 max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+  <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+    <div class="sm:col-span-1">
+      <dt class="font-medium text-gray-900">
+        Phone
+      </dt>
+      <dd class="mt-1">
+        <%= @profile.phone %>
+      </dd>
+    </div>
+
+    <div class="sm:col-span-1">
+      <dt class="font-medium text-gray-900">
+        Email
+      </dt>
+      <dd class="mt-1">
+        <%= @profile.email %>
+      </dd>
+    </div>
+
+    <div class="sm:col-span-1">
+      <dt class="font-medium text-gray-900">
+        Title
+      </dt>
+      <dd class="mt-1">
+        <%= @profile.title %>
+      </dd>
+    </div>
+
+    <div class="sm:col-span-1">
+      <dt class="font-medium text-gray-900">
+        Team
+      </dt>
+      <dd class="mt-1">
+        <%= @profile.team %>
+      </dd>
+    </div>
+
+    <div class="sm:col-span-2">
+      <dt class="font-medium text-gray-900">
+        About
+      </dt>
+      <dd class="mt-1 max-w-prose leading-relaxed space-y-5">
+        <%= simple_format @profile.about %>
+      </dd>
+    </div>
+  </dl>
+</div>

@@ -1,0 +1,50 @@
+<%= form_with(model: profile) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-4">
+    <%= form.label :name, class: "text-sm font-medium text-gray-800 mb-1 block" %>
+    <%= form.text_field :name, class: "border border-gray-300 rounded-sm w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :phone, class: "text-sm font-medium text-gray-800 mb-1 block" %>
+    <%= form.text_field :phone, class: "border border-gray-300 rounded-sm w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :email, class: "text-sm font-medium text-gray-800 mb-1 block" %>
+    <%= form.text_field :email, class: "border border-gray-300 rounded-sm w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :title, class: "text-sm font-medium text-gray-800 mb-1 block" %>
+    <%= form.text_field :title, class: "border border-gray-300 rounded-sm w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :team, class: "text-sm font-medium text-gray-800 mb-1 block" %>
+    <%= form.text_field :team, class: "border border-gray-300 rounded-sm w-full" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :about, class: "text-sm font-medium text-gray-800 mb-1 block" %>
+    <%= form.text_area :about, class: "border border-gray-300 rounded-sm w-full" %>
+  </div>
+
+  <div class="flex items-center">
+    <%= form.submit class: "cursor-pointer inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mr-4" %>
+    <% if @profile.persisted? %>
+      <%= link_to 'Cancel', @profile %>
+    <% end %>
+  </div>
+<% end %>
