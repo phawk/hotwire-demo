@@ -11,6 +11,8 @@
   </head>
 
   <body class="text-gray-600">
+    <%= render partial: "shared/flash" %>
+
     <%= yield %>
 
     <%= turbo_frame_tag "modal" %>

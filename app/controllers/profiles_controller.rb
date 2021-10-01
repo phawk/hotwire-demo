@@ -33,7 +33,8 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   def update
     if @profile.update(profile_params)
-      redirect_to @profile, notice: 'Profile was successfully updated.'
+      flash[:error] = "Something bad happened."
+      redirect_to @profile
     else
       render(
         turbo_stream: turbo_stream.update(
