@@ -35,7 +35,14 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to @profile, notice: 'Profile was successfully updated.'
     else
-      render :edit
+      render(
+        turbo_stream: turbo_stream.update(
+          "profile_form",
+          partial: "profiles/form",
+          locals: {
+            profile: @profile
+          }
+        ))
     end
   end
 
