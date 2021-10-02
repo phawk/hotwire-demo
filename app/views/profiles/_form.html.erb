@@ -1,6 +1,6 @@
 <%= form_with(model: profile, id: "profile_form", data: { turbo_frame: "_top" }) do |form| %>
   <% if profile.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="bg-red-100 rounded-md p-4 mb-4">
       <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
       <ul>
